@@ -12,7 +12,7 @@ for file in listing_files:
     df = pd.read_csv(file, low_memory=False)
     df["source_file"] = file.name
     listing_dfs.append(df)
-    #print(f"Loaded listing file: {file.name}, rows: {len(df):,}")
+   
 
 listings_combined = pd.concat(listing_dfs, ignore_index=True)
 
@@ -24,7 +24,7 @@ for file in sold_files:
     df = pd.read_csv(file, low_memory=False)
     df["source_file"] = file.name
     sold_dfs.append(df)
-    #print(f"Loaded sold file: {file.name}, rows: {len(df):,}")
+    
 
 sold_combined = pd.concat(listing_dfs, ignore_index=True)
 
