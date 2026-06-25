@@ -42,7 +42,5 @@ print(f"Total number of Sold rows before Residential filter: {len(sold_combined)
 print(f"Total number of Sold rows after Residential filter: {len(residential_sold):,}")
 
 #Saving CSVs
-residential_listings.to_csv(r"C:\Users\jjcho\OneDrive\Desktop\IDX Exchange Internship\concatenated py files/combined_listings_residential.csv", 
-                            index=False)
-residential_sold.to_csv(r"C:\Users\jjcho\OneDrive\Desktop\IDX Exchange Internship\concatenated py files/combined_sold_residential.csv", 
-                        index=False)
+residential_listings.to_csv(r"YOUR DIRECTORY", index=False)
+residential_sold.to_csv(r"YOUR DIRECTORY", index=False)
