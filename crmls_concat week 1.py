@@ -1,7 +1,7 @@
 import pandas as pd
 from pathlib import Path
 
-main_csv_files = Path(r"C:\Users\jjcho\OneDrive\Desktop\IDX Exchange Internship\csv files")
+main_csv_files = Path(r"DIRECTORY WHERE CSVS FILES ARE")
 
 listing_files = sorted(main_csv_files.glob("CRMLSListing*.csv"))
 sold_files = sorted(main_csv_files.glob("CRMLSSold*.csv"))
