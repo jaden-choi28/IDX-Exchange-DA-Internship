@@ -6,10 +6,17 @@ main_csv_files = Path(r"DIRECTORY WHERE CSVS FILES ARE")
 listing_files = sorted(main_csv_files.glob("CRMLSListing*.csv"))
 sold_files = sorted(main_csv_files.glob("CRMLSSold*.csv"))
 
+#See if file is utf or cp1252
+def read_crmls_csv(file):
+    try:
+        return pd.read_csv(file, low_memory=False, encoding="utf-8")
+    except UnicodeDecodeError:
+        return pd.read_csv(file, low_memory=False, encoding="cp1252")
+
 #Concatenate listing files
 listing_dfs = []
 for file in listing_files:
-    df = pd.read_csv(file, low_memory=False)
+    df = read_crmls_csv(file)
     df["source_file"] = file.name
     listing_dfs.append(df)
 
@@ -20,7 +27,7 @@ print(f"Total listing rows after concatenation: {len(listings_combined):,}")
 #Concatenate sold files
 sold_dfs = []
 for file in sold_files:
-    df = pd.read_csv(file, low_memory=False)
+    df = read_crmls_csv(file)
     df["source_file"] = file.name
     sold_dfs.append(df)
 
